@@ -1,3 +1,35 @@
+# Installation
+## Docker Setup
+```
+docker build -t vqa_blip .
+docker run -it -p 4050:4050 -v /home/ubuntu/.cache/torch:/root/.cache/torch -v /home/ubuntu/.cache/huggingface/:/root/.cache/huggingface vqa_blip
+```
+- Mounted different cache directories to minimize downloads
+
+## Installation on MacOS
+
+Backend installation
+
+For Mac seems like there are some issues with installation. Did not try installation with Linux so not sure if the problem exists there as well. [Tokenizer install fix](https://stackoverflow.com/questions/77265938/cargo-rustc-failed-with-code-101-could-not-build-wheels-for-tokenizers-which)
+```
+# Might need these 2, not sure
+brew install cmake
+brew install pkg-config
+
+# install rust
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+export PATH="$HOME/.cargo/bin:$PATH"
+
+pip3 install setuptools-rust
+
+# Restart your terminal, and activate environment again
+
+# Set env var to use correct rust version
+export export RUSTUP_TOOLCHAIN=1.72.1
+```
+
+# Authors Repo
+
 ## BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation
 
 ## Announcement: BLIP is now officially integrated into [LAVIS](https://github.com/salesforce/LAVIS) - a one-stop library for language-and-vision research and applications!
