@@ -2,7 +2,7 @@
 ## Docker Setup
 ```
 docker build -t vqa_blip .
-docker run -it -p 4050:4050 -v /home/ubuntu/.cache/torch:/root/.cache/torch -v /home/ubuntu/.cache/huggingface/:/root/.cache/huggingface vqa_blip
+docker run -it -p 4050:4050 -v /home/ubuntu/.cache/torch:/root/.cache/torch -v /home/ubuntu/.cache/huggingface/:/root/.cache/huggingface --gpus all vqa_blip
 ```
 - Mounted different cache directories to minimize downloads
 
